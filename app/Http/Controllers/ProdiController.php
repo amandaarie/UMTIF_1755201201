@@ -12,18 +12,22 @@ class ProdiController extends Controller
 {
     public function index()
     {
-        return view('prodi.index');
+        $list_prodi = Prodi::all();
+        return view('prodi.index', compact('list_prodi'));
     }
-    public function mhs_list()
-    {
-        $prodi = Prodi::with('mhs')->get();
-        return Datatables::of($prodi)
-            ->addIndexColumn()
-            ->addColumn('action', function ($prodi){
-                $action = '<a class="text-danger" href="/prodi/edit'.$prodi->nama_prodi.'">Edit</a>';
-                return $action;
+
+    
+
+    // public function mhs_list()
+    // {
+    //     $prodi = Prodi::with('mhs')->get();
+    //     return Datatables::of($prodi)
+    //         ->addIndexColumn()
+    //         ->addColumn('action', function ($prodi){
+    //             $action = '<a class="text-danger" href="/prodi/edit'.$prodi->nama_prodi.'">Edit</a>';
+    //             return $action;
                 
-            })
-            ->make();
-    }
+    //         })
+    //         ->make();
+    // }
 }

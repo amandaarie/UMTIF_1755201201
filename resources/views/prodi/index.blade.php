@@ -1,37 +1,33 @@
 @extends('layouts.app')
-@section('title','Prodi Page')
-@section('bread1','Program Studi')
-@section('bread2','Data')
+@section("title",'Prodi page')
+@section("bread1",'Program studi')
+@section("bread2",'data')
+
 @section('content')
-    <h3>Master Data Program Studi</h3>
-    <table class="table table-striped" id="prodi-table">
+    <h2> Master data Program Studi </h2>
+    <p><a href="/mhs/create" class="btn btn-success btn-sm">Tambah</a></p>
+    @include('layouts.alert')
+    
+    <table class="table table-striped" id="mhs-table">
         <thead>
-        <link rel="stylesheet" type="text/css" href="{{ asset('/css/app.css') }}">
             <tr>
                 <th>No</th>
-                <th>Kode Prodi</th>
-                <th>Nama Prodi</th>
-                <th>Kaprodi</th>
+                <th>Kode prodi</th>
+                <th>Nama prodi</th>
+                <th>kaprodi</th>
             </tr>
         </thead>
-        <tbody></tbody>
+        <tbody>
+            @foreach($list_prodi as $key => $item)
+            <tr>
+            <td>{{ ++$key }}</td>
+            <td>{{ $item->kode_prodi }}</td>
+            <td>{{ $item->nama_prodi }}</td>
+            <td>{{ $item->kaprodi }}</td>
+            </tr>
+            @endforeach
+        </tbody>
     </table>
-    <script>
-            $(function () {
-        
-            var table = $('prodi-table').DataTable({
-            processing: true,
-            serverSide: true,
-            ajax: "{{ route('prodi.list') }}",
-            columns: [
-                {data: 'DT_RowIndex', name: 'DT_RowIndex'},
-                {data: 'kode_prodi', name: 'kode_prodi'},
-                {data: 'nama_prodi', name: 'nama_prodi'},
-                {data: 'kaprodi', name: 'kaprodi'},
-                {data: 'action', name: 'action', orderable: false, searchable: false},
-            ]
-        });
 
-    });
-    </script>
+
 @endsection

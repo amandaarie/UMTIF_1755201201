@@ -6,7 +6,7 @@
     <title>@yield('title')</title>
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <!-- DataTables -->
-    <link rel="stylesheet" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="http://cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css">
     <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet">
     <script src="{{asset('js/app.js')}}"></script>
     <!-- DataTables -->

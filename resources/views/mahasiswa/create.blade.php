@@ -3,6 +3,7 @@
 @section('bread1','Mahasiswa')
 @section('bread2','Data')
 @section('content')
+    <link rel="stylesheet" type="text/css" href="{{ asset('/css/app.css') }}">
     <h3>Form Mahasiswa</h3><hr>
     @include('layouts.alert')
     <form action="/mhs/store" method="POST">
